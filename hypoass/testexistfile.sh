@@ -1,6 +1,7 @@
 #!/bin/bash
 
-file_name="/home/demo.txt" #Providing information in /path/to/file_name
+#Providing information in /path/to/file_name
+file_name="/home/demo.txt" 
 
 #Checking if a file exists
 if [ -f "$file_name" ]; 
