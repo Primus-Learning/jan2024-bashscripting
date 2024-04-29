@@ -1,0 +1,23 @@
+#!/bin/bash
+
+bucket_name="azil2"
+
+region="stockholm"
+
+if ! which aws &> /dev/null; then
+  echo "Error: AWS CLI not found. Please install and configure the AWS CLI."
+  exit 1
+fi
+
+if aws s3api head-bucket --bucket "$bucket_name" 2>/dev/null; then
+  echo "Bucket $bucket_name already exists."
+else
+
+  if [[ -n "$region" ]]; then
+    aws s3api create-bucket --bucket "$bucket_name" --region "$region"
+  else
+    aws s3api create-bucket --bucket "$bucket_name"
+  fi
+  echo "Bucket $bucket_name created successfully."
+fi
+

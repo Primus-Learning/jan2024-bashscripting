@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sudo apt update
+
+sudo apt install -y default-jre
+
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+sudo apt update
+
+sudo apt install -y jenkins
+
+sudo systemctl start jenkins
+
+sudo systemctl enable jenkins
+
+echo "Jenkins is installed. Initial admin password:1111"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+

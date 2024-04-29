@@ -1,0 +1,14 @@
+#! /bin/bash
+
+read_numbers() {
+    read -p "Enter the first number: " num1
+    read -p "Enter the second number: " num2
+    read -p "Enter the third number: " num3
+}
+sort_numbers() {
+    sorted_numbers=($(echo "$1 $2 $3" | tr ' ' '\n' | sort -n))
+    echo "Numbers in ascending order: ${sorted_numbers[@]}"
+}
+echo "Please enter three numbers:"
+read_numbers
+sort_numbers $num1 $num2 $num3
