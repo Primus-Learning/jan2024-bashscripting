@@ -1,0 +1,37 @@
+#! /bin/bash
+
+
+# Function to display usage instructions
+usage() {
+    echo "Usage: $0 <number1> <number2> <number3>"
+    exit 1
+}
+
+# Check if three arguments are provided
+if [ $# -ne 3 ]; then
+    usage
+fi
+
+# Assigning input numbers to variables
+num1=$1
+num2=$2
+num3=$3
+
+# Sorting the numbers in ascending order
+sorted_nums=$(echo -e "$num1\n$num2\n$num3" | sort -n)
+
+# Displaying the sorted numbers
+echo "Numbers in ascending order: $sorted_nums"
+Save this script in a file, for example, sort_numbers.sh, and then you can run it from the command line, providing three numbers as arguments. For example:
+
+bash
+Copy code
+./sort_numbers.sh 5 3 8
+This will output:
+
+csharp
+Copy code
+Numbers in ascending order: 3 5 8
+
+
+

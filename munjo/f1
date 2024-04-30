@@ -1,0 +1,31 @@
+#! /bin/bash
+
+is-prime() {
+num=$1
+if [ &num -le 1 ]; then
+echo "$num is not a prime number."
+exit
+
+fi
+
+for ((i=2; i*i<=num; i++)); do
+
+if [ $((num%i)) -eq 0 ]; then
+echo "$num is not a prime number."
+fi
+
+done
+
+echo "$num is a prime number."}
+
+
+# check if argumen is provided
+if [ $# -eg 0 ]; then
+echo "usage: $0<number>"
+exit 1
+fi
+
+# call function to check if the is -prime
+
+$1
+

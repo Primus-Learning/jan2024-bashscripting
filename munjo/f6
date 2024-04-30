@@ -1,0 +1,19 @@
+
+
+#!/bin/bash
+
+# Set your AWS region
+AWS_REGION="stockholm"
+
+# Set your bucket name
+BUCKET_NAME="nkusi"
+
+# Check if the bucket exists
+if aws s3 ls "s3://$nkusi" 2>&1 | grep -q 'NoSuchBucket'; then
+    echo "Bucket does not exist. Creating..."
+    # Create the bucket
+    aws s3 mb "s3://$nkusi" --region $AWS_REGION
+    echo "Bucket created successfully."
+else
+    echo "Bucket already exists."
+fi

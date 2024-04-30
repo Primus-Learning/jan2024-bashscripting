@@ -1,0 +1,14 @@
+#! /bin/bash
+
+file-path="$HOME/demo.txt"
+
+if [ -f "$file-path" ]; then 
+
+echo "the file 'demo.txt' exists in the home directory."
+
+else
+
+echo "the file 'demo.txt' does not exist in the home directory."
+
+
+fi

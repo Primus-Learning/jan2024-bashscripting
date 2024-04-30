@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Update package index
+sudo apt update
+
+# Install Java Development Kit (JDK)
+sudo apt install -y default-jdk
+
+# Add the Jenkins repository key to the system
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+# Add the Jenkins repository to the system's sources list
+echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+# Update package index again after adding Jenkins repository
+sudo apt update
+
+# Install Jenkins
+sudo apt install -y jenkins
+
+# Start Jenkins service
+sudo systemctl start jenkins
+
+# Enable Jenkins service to start on boot
+sudo systemctl enable jenkins
+
+# Display initial admin password
+echo "Jenkins initial admin password:"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+Save this script into a file, for example, install_jenkins.sh, and make it executable by running:
+
+bash
+Copy code
+chmod +x install_jenkins.sh
+Then you can execute it with:
+
+bash
+Copy code
+./install_jenkins.sh
+Please note that you might need to run this script with sudo or as a root user, depending on your system configuration. Additionally, always review scripts from the internet before executing them to ensure they meet your security requirements.
+
+
+
+By sending a message, you agree to our Terms. Read our Privacy Policy. Don't share sensitive info. Chats may be reviewed and used to train our models. Learn abo
