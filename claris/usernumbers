@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Function to sort three numbers in ascending order
+sort_numbers() {
+    # Sort the numbers using the "sort" command
+    sorted_numbers=$(echo "$1 $2 $3" | tr " " "\n" | sort -n)
+
+    # Output the sorted numbers
+    echo "Numbers in ascending order: $sorted_numbers"
+}
+
+# Ask the user to input three numbers
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+read -p "Enter the third number: " num3
+
+# Call the function to sort the numbers
+sort_numbers "$num1" "$num2" "$num3"
+#!/bin/bash
+
+# Function to sort three numbers in ascending order
+sort_numbers() {
+    # Sort the numbers using the "sort" command
+    sorted_numbers=$(echo "$1 $2 $3" | tr " " "\n" | sort -n)
+
+    # Output the sorted numbers
+    echo "Numbers in ascending order: $sorted_numbers"
+}
+
+# Ask the user to input three numbers
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+read -p "Enter the third number: " num3
+
+# Call the function to sort the numbers
+sort_numbers "$num1" "$num2" "$num3"
+chmod +x ascending_order.sh
+./ascending_order.sh
+
+

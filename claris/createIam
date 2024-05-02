@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# IAM user name to create
+IAM_USERNAME="LOVELINE"
+
+# Check if IAM user exists
+aws iam get-user --user-name "$IAM_LOVELINE" &>/dev/null
+
+if [ $? -eq 0 ]; then
+    echo "IAM user $IAM_LOVELINE already exists."
+else
+    echo "IAM user $IAM_LOVELINE does not exist. Creating..."
+    # Create IAM user
+    aws iam create-user --user-name "$IAM_LOVELINE"
+    if [ $? -eq 0 ]; then
+        echo "IAM user $IAM_LOVENE created successfully."
+    else
+        echo "Failed to create IAM user $IAM_LOVELINE."
+chmod +x create_iam_user.sh
+./create_iam_user.sh
+
+
+

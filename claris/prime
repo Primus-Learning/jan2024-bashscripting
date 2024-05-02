@@ -1,0 +1,66 @@
+#!/bin/bash
+
+is_prime() {
+    # Check if the number is less than 2
+    if [ "$1" -lt 2 ]; then
+        echo "$1 is not a prime number"
+        return 1
+    fi
+
+    # Loop through numbers from 2 to the square root of the number
+    for ((i = 2; i*i <= $1; i++)); do
+        # If the number is divisible by any number other than 1 and itself, it's not prime
+        if [ $(($1 % $i)) -eq 0 ]; then
+            echo "$1 is not a prime number"
+            return 1
+        fi
+    done
+
+    # If no factors are found, the number is prime
+    echo "$1 is a prime number"
+    return 0
+}
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <number>"
+    exit 1
+fi
+
+# Call the function to check if the number is prime
+is_prime "$1"
+#!/bin/bash
+
+is_prime() {
+    # Check if the number is less than 2
+    if [ "$1" -lt 2 ]; then
+        echo "$1 is not a prime number"
+        return 1
+    fi
+
+    # Loop through numbers from 2 to the square root of the number
+    for ((i = 2; i*i <= $1; i++)); do
+        # If the number is divisible by any number other than 1 and itself, it's not prime
+        if [ $(($1 % $i)) -eq 0 ]; then
+            echo "$1 is not a prime number"
+            return 1
+        fi
+    done
+
+    # If no factors are found, the number is prime
+    echo "$1 is a prime number"
+    return 0
+}
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <number>"
+    exit 1
+fi
+
+# Call the function to check if the number is prime
+is_prime "$1"
+                                                       
+chmod +x prime_checker.sh
+./prime_checker.sh 17
+

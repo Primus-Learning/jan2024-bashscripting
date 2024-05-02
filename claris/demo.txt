@@ -1,0 +1,14 @@
+#!/bin/bash
+
+file="~/demo.txt"  # Path to the file in the home directory
+
+# Check if the file exists
+if [ -e "$file" ]; then
+    echo "The file demo.txt exists in the home directory."
+else
+    echo "The file demo.txt does not exist in the home directory."
+fi
+chmod +x file_checker.sh
+chmod +x file_checker.sh
+./file_checker.sh
+

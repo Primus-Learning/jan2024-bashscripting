@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Import GPG Key
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+# Add Jenkins repository to apt sources
+echo "deb https://pkg.jenkins.io/debian binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+# Update apt package index
+sudo apt update
+
+# Install Java (if not already installed)
+sudo apt install -y default-jre
+
+# Install Jenkins
+sudo apt install -y jenkins
+
+# Start Jenkins service
+sudo systemctl start jenkins
+
+# Enable Jenkins service to start on boot
+sudo systemctl enable jenkins
+
+# Output instructions for initial setup
+echo "Jenkins is now installed and running."
+echo "You can access Jenkins at http://localhost:8080 on your web browser."
+echo "Please follow the instructions on the Jenkins web page to complete the setup."
+chmod +x install_jenkins.sh
+./install_jenkins.sh
+
+
+
