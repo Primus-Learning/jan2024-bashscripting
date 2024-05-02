@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Set the IAM user name
+USER_NAME="your_username"
+
+# Check if the user already exists
+aws iam get-user --user-name "$USER_NAME" &> /dev/null
+
+# If the exit status ($?) is not 0, the user doesn't exist
+if [ $? -ne 0 ]; then
+    # Create the user
+    aws iam create-user --user-name "$USER_NAME"
+    echo "IAM user '$USER_NAME' created successfully."
+else
+    echo "IAM user '$USER_NAME' already exists."
+fi
